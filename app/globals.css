@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/**
+ * Design tokens do Espaço Jeans.
+ * A paleta gira em torno do índigo (denim) com neutros frios de apoio.
+ */
+@theme inline {
+  --font-sans: var(--font-inter);
+
+  --color-denim-50: #f3f6fb;
+  --color-denim-100: #e4ecf6;
+  --color-denim-200: #c6d8ec;
+  --color-denim-300: #98b7db;
+  --color-denim-400: #6390c4;
+  --color-denim-500: #3f6faa;
+  --color-denim-600: #2f588e;
+  --color-denim-700: #284873;
+  --color-denim-800: #253d60;
+  --color-denim-900: #1f2f4d;
+  --color-denim-950: #131d31;
+
+  --color-ink-50: #f7f8f9;
+  --color-ink-100: #eef0f3;
+  --color-ink-200: #dde1e7;
+  --color-ink-400: #8d95a3;
+  --color-ink-500: #6b7280;
+  --color-ink-700: #3f454f;
+  --color-ink-900: #1c1f26;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  color: var(--color-ink-900);
+  background-color: #fff;
+}
+
+/* Marquee da barra de avisos — pausa no hover e respeita reduced motion. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
