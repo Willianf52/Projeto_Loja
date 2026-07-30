@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# configuracao local de ferramentas
+/.claude
