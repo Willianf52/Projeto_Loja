@@ -17,10 +17,13 @@ type StoreState = {
   favorites: string[];
   cartCount: number;
   cartTotal: number;
+  isCartOpen: boolean;
   addToCart: (item: Omit<CartItem, "quantity"> & { quantity?: number }) => void;
   removeFromCart: (productId: string, size: string) => void;
   toggleFavorite: (productId: string) => void;
   isFavorite: (productId: string) => boolean;
+  openCart: () => void;
+  closeCart: () => void;
 };
 
 const StoreContext = createContext<StoreState | null>(null);
@@ -45,6 +48,7 @@ function readStorage<T>(key: string, fallback: T): T {
 export function StoreProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [isCartOpen, setCartOpen] = useState(false);
 
   // Hidrata depois da montagem para não divergir do HTML renderizado no servidor.
   useEffect(() => {
@@ -88,6 +92,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     );
   }, []);
 
+  const openCart = useCallback(() => setCartOpen(true), []);
+  const closeCart = useCallback(() => setCartOpen(false), []);
+
   const value = useMemo<StoreState>(() => {
     const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
     const cartTotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
@@ -97,12 +104,15 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       favorites,
       cartCount,
       cartTotal,
+      isCartOpen,
       addToCart,
       removeFromCart,
       toggleFavorite,
       isFavorite: (productId) => favorites.includes(productId),
+      openCart,
+      closeCart,
     };
-  }, [cart, favorites, addToCart, removeFromCart, toggleFavorite]);
+  }, [cart, favorites, isCartOpen, addToCart, removeFromCart, toggleFavorite, openCart, closeCart]);
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
 }

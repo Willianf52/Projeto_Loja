@@ -36,23 +36,23 @@ export default async function ProductsPage({
   const products = filterProducts(filters);
 
   return (
-    <Container className="py-10">
-      <nav aria-label="Você está em" className="text-xs text-ink-400">
-        <Link href="/" className="hover:text-denim-700">
+    <Container className="py-12 sm:py-16">
+      <nav aria-label="Você está em" className="text-xs tracking-wide text-ink-400">
+        <Link href="/" className="transition-colors duration-200 ease-out hover:text-denim-700">
           Início
         </Link>
         <span className="mx-1.5">/</span>
         <span className="text-ink-700">Catálogo</span>
       </nav>
 
-      <h1 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+      <h1 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
         {filters.busca ? `Resultados para “${filters.busca}”` : "Catálogo"}
       </h1>
-      <p className="mt-1 text-sm text-ink-500">
+      <p className="mt-2 text-sm text-ink-500">
         {products.length} {products.length === 1 ? "produto" : "produtos"}
       </p>
 
-      <div className="mt-6 flex gap-2 overflow-x-auto pb-1">
+      <div className="mt-8 flex gap-2 overflow-x-auto pb-1">
         {QUICK_FILTERS.map((filter) => {
           const active =
             filter.match.genero === filters.genero &&
@@ -64,7 +64,7 @@ export default async function ProductsPage({
               key={filter.label}
               href={filter.href}
               className={cn(
-                "shrink-0 rounded-full px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase transition-colors",
+                "shrink-0 rounded-full px-4 py-2 text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-200 ease-out",
                 active ? "bg-denim-900 text-white" : "bg-ink-100 text-ink-700 hover:bg-ink-200",
               )}
             >
@@ -75,7 +75,7 @@ export default async function ProductsPage({
       </div>
 
       {products.length ? (
-        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

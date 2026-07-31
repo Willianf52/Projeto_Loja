@@ -8,20 +8,20 @@ export function StoreSection() {
   return (
     <section id="loja" className="py-14 sm:py-20">
       <Container>
-        <div className="grid overflow-hidden rounded-3xl bg-denim-900 text-white lg:grid-cols-2">
-          <div className="p-8 sm:p-12">
-            <p className="text-xs font-semibold tracking-[0.2em] text-denim-300 uppercase">
+        <div className="grid overflow-hidden bg-denim-900 text-white lg:grid-cols-2">
+          <div className="p-10 sm:p-14">
+            <p className="text-xs font-medium tracking-[0.22em] text-denim-300 uppercase">
               Loja física
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="mt-4 font-serif text-3xl font-medium tracking-tight sm:text-4xl">
               Prove, ajuste e leve na hora
             </h2>
-            <p className="mt-3 max-w-md text-sm text-denim-100/85">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-denim-100/85">
               Nosso time ajuda você a encontrar a modelagem certa. Reserve a peça
               pelo WhatsApp e retire no mesmo dia.
             </p>
 
-            <dl className="mt-8 space-y-5 text-sm">
+            <dl className="mt-9 space-y-5 text-sm">
               <div className="flex gap-3">
                 <MapPinIcon className="mt-0.5 size-5 shrink-0 text-denim-300" />
                 <div>

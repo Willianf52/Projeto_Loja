@@ -18,7 +18,7 @@ export function ProductMedia({ product, className }: { product: Product; classNa
   return (
     <div className={cn("relative overflow-hidden bg-ink-100", className)}>
       <div
-        className="absolute inset-0 transition-opacity duration-500 group-hover:opacity-0"
+        className="absolute inset-0 transition-[opacity,transform] duration-[420ms] ease-out group-hover:scale-[1.03] group-hover:opacity-0"
         style={front ? undefined : { backgroundImage: gradient(product.swatch.front, product.swatch.back) }}
       >
         {front ? (
@@ -33,7 +33,7 @@ export function ProductMedia({ product, className }: { product: Product; classNa
       </div>
 
       <div
-        className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="absolute inset-0 scale-[1.03] opacity-0 transition-[opacity,transform] duration-[420ms] ease-out group-hover:scale-100 group-hover:opacity-100"
         style={back ? undefined : { backgroundImage: gradient(product.swatch.back, product.swatch.front) }}
       >
         {back ? (

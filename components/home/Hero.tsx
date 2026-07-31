@@ -30,22 +30,22 @@ export function Hero() {
       <Container className="relative py-16 sm:py-20 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.18em] uppercase backdrop-blur-sm">
+            <p className="inline-flex items-center gap-2 border border-white/20 bg-white/5 px-3 py-1 text-[11px] font-medium tracking-[0.2em] uppercase backdrop-blur-sm">
               <SparkleIcon className="size-3.5" />
               Coleção Inverno 2026
             </p>
 
-            <h1 className="mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-7 font-serif text-5xl leading-[1.08] font-medium tracking-tight sm:text-6xl lg:text-7xl">
               O jeans que veste
-              <span className="block text-denim-300">o seu dia inteiro.</span>
+              <span className="block text-denim-300 italic">o seu dia inteiro.</span>
             </h1>
 
-            <p className="mt-5 max-w-md text-base text-denim-100/85">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-denim-100/85">
               Lavagens exclusivas, modelagens que assentam de verdade e peças
               masculinas e femininas para montar o look completo.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/produtos?tag=lancamento" size="lg" variant="light">
                 Ver lançamentos
               </ButtonLink>
@@ -54,7 +54,7 @@ export function Hero() {
               </ButtonLink>
             </div>
 
-            <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-denim-100/80">
+            <ul className="mt-11 flex flex-wrap gap-x-8 gap-y-3 text-sm text-denim-100/80">
               {HIGHLIGHTS.map((highlight) => (
                 <li key={highlight} className="flex items-center gap-2">
                   <span className="size-1.5 rounded-full bg-denim-300" />
@@ -68,12 +68,12 @@ export function Hero() {
           <div className="relative hidden aspect-[4/5] w-full lg:block">
             <div className="absolute inset-0 flex gap-4">
               <div className="flex flex-1 flex-col gap-4">
-                <div className="flex-[2] rounded-3xl bg-gradient-to-br from-[#5b7ea8] to-[#28405f] shadow-2xl shadow-black/30" />
-                <div className="flex-1 rounded-3xl bg-gradient-to-br from-[#93b2d4] to-[#4f74a3] shadow-2xl shadow-black/30" />
+                <div className="flex-[2] rounded-3xl bg-gradient-to-br from-[#5b7ea8] to-[#28405f] shadow-xl shadow-black/20" />
+                <div className="flex-1 rounded-3xl bg-gradient-to-br from-[#93b2d4] to-[#4f74a3] shadow-xl shadow-black/20" />
               </div>
               <div className="flex flex-1 flex-col gap-4 pt-10">
-                <div className="flex-1 rounded-3xl bg-gradient-to-br from-[#c6d8ec] to-[#6390c4] shadow-2xl shadow-black/30" />
-                <div className="flex-[2] rounded-3xl bg-gradient-to-br from-[#2f4f7c] to-[#131d31] shadow-2xl shadow-black/30" />
+                <div className="flex-1 rounded-3xl bg-gradient-to-br from-[#c6d8ec] to-[#6390c4] shadow-xl shadow-black/20" />
+                <div className="flex-[2] rounded-3xl bg-gradient-to-br from-[#2f4f7c] to-[#131d31] shadow-xl shadow-black/20" />
               </div>
             </div>
 

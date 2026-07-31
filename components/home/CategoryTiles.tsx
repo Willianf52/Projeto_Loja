@@ -36,23 +36,26 @@ const CATEGORIES = [
 
 export function CategoryTiles() {
   return (
-    <section className="py-14 sm:py-16">
+    <section className="py-16 sm:py-20">
       <Container>
-        <div className="grid auto-rows-[168px] grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="grid auto-rows-[176px] grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
           {CATEGORIES.map((category) => (
             <Link
               key={category.label}
               href={category.href}
-              className={`group relative flex flex-col justify-end overflow-hidden rounded-2xl p-5 text-white ${category.span}`}
-              style={{ backgroundImage: category.gradient }}
+              className={`group relative flex flex-col justify-end overflow-hidden p-5 text-white ${category.span}`}
             >
-              <div className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/25" />
+              <div
+                className="absolute inset-0 transition-transform duration-[420ms] ease-out group-hover:scale-[1.04]"
+                style={{ backgroundImage: category.gradient }}
+              />
+              <div className="absolute inset-0 bg-black/10 transition-colors duration-200 ease-out group-hover:bg-black/20" />
               <div className="relative">
-                <h3 className="text-lg font-semibold tracking-tight sm:text-xl">{category.label}</h3>
-                <p className="mt-0.5 text-xs text-white/80">{category.description}</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.14em] uppercase">
+                <h3 className="font-serif text-xl font-medium tracking-tight sm:text-2xl">{category.label}</h3>
+                <p className="mt-1 text-xs text-white/80">{category.description}</p>
+                <span className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-medium tracking-[0.16em] uppercase">
                   Comprar
-                  <ArrowRightIcon className="size-3.5 transition-transform group-hover:translate-x-1" />
+                  <ArrowRightIcon className="size-3.5 transition-transform duration-200 ease-out group-hover:translate-x-1" />
                 </span>
               </div>
             </Link>

@@ -12,7 +12,7 @@ export function Logo({ className, inverted = false }: { className?: string; inve
     >
       <span
         className={cn(
-          "text-lg font-semibold tracking-[0.18em] uppercase sm:text-xl",
+          "font-serif text-xl tracking-[0.04em] italic sm:text-2xl",
           inverted ? "text-white" : "text-denim-900",
         )}
       >
@@ -20,7 +20,7 @@ export function Logo({ className, inverted = false }: { className?: string; inve
       </span>
       <span
         className={cn(
-          "text-lg font-light tracking-[0.42em] uppercase sm:text-xl",
+          "text-[11px] font-medium tracking-[0.42em] uppercase sm:text-xs",
           inverted ? "text-denim-200" : "text-denim-600",
         )}
       >

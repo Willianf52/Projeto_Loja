@@ -27,9 +27,9 @@ const VARIANTS: Record<Variant, string> = {
 };
 
 const SIZES: Record<Size, string> = {
-  sm: "h-9 px-4 text-xs",
-  md: "h-11 px-6 text-sm",
-  lg: "h-13 px-8 text-sm",
+  sm: "h-9 px-4 text-[11px]",
+  md: "h-11 px-6 text-[13px]",
+  lg: "h-13 px-8 text-[13px]",
 };
 
 export function buttonStyles({
@@ -42,8 +42,8 @@ export function buttonStyles({
   className?: string;
 } = {}) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-wide uppercase",
-    "transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
+    "inline-flex items-center justify-center gap-2 rounded-full font-medium tracking-[0.1em] uppercase",
+    "transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2",
     "disabled:cursor-not-allowed disabled:opacity-50",
     VARIANTS[variant],
     SIZES[size],

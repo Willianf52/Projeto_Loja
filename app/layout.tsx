@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 
+import { CartDrawer } from "@/components/store/CartDrawer";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
@@ -11,6 +12,14 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+/** Serif editorial usada nos títulos — contraste de alta costura com o corpo em Inter. */
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -28,12 +37,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${fraunces.variable} antialiased`}>
         <StoreProvider>
           <Header />
           <main>{children}</main>
           <Footer />
           <WhatsAppFab />
+          <CartDrawer />
         </StoreProvider>
       </body>
     </html>

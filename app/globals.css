@@ -3,9 +3,11 @@
 /**
  * Design tokens do Espaço Jeans.
  * A paleta gira em torno do índigo (denim) com neutros frios de apoio.
+ * Tipografia editorial: Fraunces (serif) para títulos, Inter para o corpo.
  */
 @theme inline {
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
 
   --color-denim-50: #f3f6fb;
   --color-denim-100: #e4ecf6;
@@ -26,6 +28,9 @@
   --color-ink-500: #6b7280;
   --color-ink-700: #3f454f;
   --color-ink-900: #1c1f26;
+
+  /* Curva de saída suave para todas as micro-interações da loja. */
+  --ease-out-swift: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -49,11 +54,76 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 28s linear infinite;
+  animation: marquee 32s linear infinite;
+}
+
+/* Overlay do carrinho: fade discreto. */
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Painel do carrinho: deslize lateral fluido. */
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-overlay-in {
+  animation: overlay-in 220ms var(--ease-out-swift) forwards;
+}
+
+.animate-drawer-in {
+  animation: drawer-in 240ms var(--ease-out-swift) forwards;
+}
+
+/* Pulso discreto ao favoritar — feedback tátil sem exagero. */
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.22);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-heart-pop {
+  animation: heart-pop 320ms var(--ease-out-swift);
+}
+
+/* Confirmação de item adicionado — entra com leve deslize e se dissolve. */
+@keyframes confirm-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-confirm-in {
+  animation: confirm-in 200ms var(--ease-out-swift);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-overlay-in,
+  .animate-drawer-in,
+  .animate-heart-pop,
+  .animate-confirm-in {
     animation: none;
   }
 }

@@ -15,9 +15,9 @@ const PAYMENTS = ["Pix", "Visa", "Master", "Elo", "Amex", "Boleto"];
 
 export function Footer() {
   return (
-    <footer id="contato" className="mt-20 bg-denim-950 text-denim-100">
-      <Container className="py-14">
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
+    <footer id="contato" className="mt-24 bg-denim-950 text-denim-100">
+      <Container className="py-16">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_repeat(3,1fr)]">
           <div>
             <Logo inverted />
             <p className="mt-4 max-w-xs text-sm text-denim-200/80">{STORE.tagline}</p>
@@ -33,7 +33,7 @@ export function Footer() {
                   href={whatsappUrl(WHATSAPP_MESSAGES.general)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition-colors hover:text-white"
+                  className="transition-colors duration-200 ease-out hover:text-white"
                 >
                   {STORE.whatsapp.display}
                 </a>
@@ -54,7 +54,7 @@ export function Footer() {
               href={`https://instagram.com/${STORE.instagram.replace("@", "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-denim-200/80 transition-colors hover:text-white"
+              className="mt-6 inline-flex items-center gap-2 text-sm text-denim-200/80 transition-colors duration-200 ease-out hover:text-white"
             >
               <InstagramIcon className="size-5" />
               {STORE.instagram}
@@ -63,7 +63,7 @@ export function Footer() {
 
           {FOOTER_NAV.map((column) => (
             <nav key={column.title} aria-label={column.title}>
-              <h3 className="text-xs font-semibold tracking-[0.18em] text-white uppercase">
+              <h3 className="text-xs font-medium tracking-[0.2em] text-white uppercase">
                 {column.title}
               </h3>
               <ul className="mt-4 space-y-2.5">
@@ -71,7 +71,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-denim-200/80 transition-colors hover:text-white"
+                      className="text-sm text-denim-200/80 transition-colors duration-200 ease-out hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -84,7 +84,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-xs font-semibold tracking-[0.18em] text-white uppercase">
+            <p className="text-xs font-medium tracking-[0.2em] text-white uppercase">
               Formas de pagamento
             </p>
             <ul className="mt-3 flex flex-wrap gap-2">
